@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amit Eizenberg - CV</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .name {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.25);
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #3498db;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #34495e;
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            transition: transform 0.2s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-2px);
+        }
+
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #3498db;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .experience-item, .project-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #e74c3c;
+            transition: transform 0.2s ease;
+        }
+
+        .experience-item:hover, .project-item:hover {
+            transform: translateX(3px);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+
+        .company {
+            color: #e74c3c;
+            font-weight: 500;
+        }
+
+        .date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            background: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+        }
+
+        .job-description ul {
+            margin-left: 1.5rem;
+        }
+
+        .job-description li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: #34495e;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+
+        .project-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .education-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .education-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+        }
+
+        .degree {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .school {
+            color: #e74c3c;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .courses {
+            margin-top: 1rem;
+        }
+
+        .courses-title {
+            font-weight: 600;
+            color: #34495e;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        .course {
+            background: #27ae60;
+            color: white;
+            padding: 0.4rem;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .military {
+            background: linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .military h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .military ul {
+            margin-left: 1.5rem;
+            margin-top: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+            }
+            
+            .name {
+                font-size: 2.2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .education-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="name">Amit Eizenberg</h1>
+            <p class="title">Computer Science Student & NOC Engineer</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:amit.eizen@gmail.com">amit.eizen@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>052-6227117</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="http://linkedin.com/in/amit-eizenberg-05980328b" target="_blank">LinkedIn</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/Amit-Eizen" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-user"></i>
+                    Professional Summary
+                </h2>
+                <p class="summary">
+                    Driven Computer Science student and NOC Engineer with hands-on experience in troubleshooting, SQL querying, automation, and log analysis. Proficient in backend logic and system monitoring. Strong foundation in computer science with proven ability to quickly learn new technologies and contribute to real-world projects.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-cogs"></i>
+                    Core Skills
+                </h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Technical Skills</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Troubleshooting & RCA</span>
+                            <span class="skill-tag">SQL Analysis</span>
+                            <span class="skill-tag">Scripting & Automation</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">C/C++</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Tools & Platforms</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">DataDog</span>
+                            <span class="skill-tag">Azure DevOps</span>
+                            <span class="skill-tag">Jira</span>
+                            <span class="skill-tag">GitHub/Git</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Soft Skills</h4>
+                        <div class="skills-list">
+                            <span class="skill-tag">Communication</span>
+                            <span class="skill-tag">Self-motivation</span>
+                            <span class="skill-tag">Fast learner</span>
+                            <span class="skill-tag">Attention to detail</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i>
+                    Professional Experience
+                </h2>
+                <div class="experience-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">NOC Engineer</div>
+                            <div class="company">Aristocrat Interactive</div>
+                        </div>
+                        <div class="date">Dec 2023 - Present</div>
+                    </div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Monitored global infrastructure and product health via DataDog and internal tools</li>
+                            <li>Investigated and documented bugs through log analysis and SQL queries</li>
+                            <li>Collaborated with Dev teams to investigate bugs and production incidents</li>
+                            <li>Managed Jira tickets under tight SLAs and contributed to release testing cycles</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-code"></i>
+                    Academic Projects
+                </h2>
+                
+                <div class="project-item">
+                    <div class="project-title">Mission Organizer - Task & Reminder Web App</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">ASP.NET MVC</span>
+                        <span class="tech-tag">SQL Server</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <div class="project-description">
+                        Full-stack app for managing tasks, subtasks, and smart reminders. Features custom login system, chart-based dashboards, and live alerts. 
+                        <br><strong>GitHub:</strong> <a href="https://github.com/Amit-Eizen" target="_blank">MissionOrganizer Repository</a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">Automated Job Search Bot</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">C#</span>
+                    </div>
+                    <div class="project-description">
+                        Parsed Microsoft Careers API, filtered job results, and sent automated alerts for relevant positions.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">Daily Task Automation</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                    </div>
+                    <div class="project-description">
+                        Automated logins to multiple portals, validated data consistency, and flagged inconsistencies in structured summary reports.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-title">Version-Controlled Resume Website</div>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                    </div>
+                    <div class="project-description">
+                        Built and hosted personal resume website via GitHub Pages with version control integration.
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i>
+                    Education
+                </h2>
+                <div class="education-section">
+                    <div class="education-item">
+                        <div class="degree">B.Sc. in Computer Science</div>
+                        <div class="school">The College of Management Academic Studies</div>
+                        <div class="date">Oct 2023 - Present</div>
+                        <div class="courses">
+                            <div class="courses-title">Notable Courses:</div>
+                            <div class="course-grid">
+                                <div class="course">Introduction to CS (100)</div>
+                                <div class="course">OOP (100)</div>
+                                <div class="course">Data Structures (95)</div>
+                                <div class="course">Databases (100)</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="military">
+                        <h4>Military Service</h4>
+                        <div><strong>Officer - Artillery Corps</strong></div>
+                        <div>Israel Defense Forces | 2017 - 2020</div>
+                        <ul>
+                            <li>Planned and coordinated quarterly training schedules under strict deadlines</li>
+                            <li>Functioned as representative between battalion and base headquarters</li>
+                            <li>Developed planning, leadership, and task management skills in high-pressure environments</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
